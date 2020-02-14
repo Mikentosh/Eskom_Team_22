@@ -2,7 +2,7 @@
 
 
 # Function 1
-def metric_dictionary():
+def metric_dictionary(items):
 
     """
     # Explain in one sentence what the function does
