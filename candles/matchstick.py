@@ -78,7 +78,7 @@ def date_parser():
 
 # Function 4
 def hashtag_extractor():
-    # Lineo
+    # Thabo
     # to be implemented
     # Remember to properly use docstrings!
     """
@@ -98,7 +98,28 @@ def hashtag_extractor():
         >>> hashtag_extractor(#)
         ###
     """
-    return 0
+    hash_tag=[]
+    for x in range(len(df.iloc[:,0])):
+        rowz = [ i for i in df.iloc[x][0].split() if i.startswith('#')]
+        hash_tag.append(rowz)
+        hash_tag = [[x.lower() for x in a] for a in hash_tag]
+ 
+    Municip_hash=[]
+    Municip_name=[]
+    for j in range(len(df.iloc[:,0])):
+        rowz = [ i for i in df.iloc[j][0].split() if i.startswith('@')]
+        Municip_hash.append(rowz)
+
+    for k in range(len(Municip_hash)):
+        name_munic=[mun_dict[x] for x in  Municip_hash[k] if x in mun_dict]
+        Municip_name.append(name_munic)
+  
+    df = df.assign(municipality = [','.join(map(str,l)) for l in Municip_name ])
+    df['municipality']=df['municipality'].apply(lambda y: np.nan if len(y)==0 else y)
+
+    df = df.assign(hashtags = hash_tag)
+    df['hashtags']=df['hashtags'].apply(lambda y: np.nan if len(y)==0 else y)
+    return df
 
 
 # Function 5
@@ -153,7 +174,7 @@ def word_splitter():
 
 # Function 7
 def stop_word_remover():
-    # Whole team
+    # Thabo
     # to be implemented
     # Remember to properly use docstrings!
     """
@@ -173,4 +194,26 @@ def stop_word_remover():
         >>> stop_word_remover(#)
         ###
     """
-    return 0
+
+    stop_words_items=stop_words_dict.get('stopwords')
+
+    split_tweets=[]
+    for x in range(len(df.iloc[:,0])):
+        split_tweets.append([df.iloc[:,0][x].replace(' ',', ')])
+        split_tweets = [[x.lower() for x in a] for a in split_tweets]  #Splitted tweets in smaller letters  
+        
+    list_to_string=[]
+    for i in range(len(split_tweets)):
+        words=' '.join(map(str, split_tweets[i])).replace(',','').split()
+        list_to_string.append(words)
+        
+    without_stop_words=[]
+    for k in range(len(df.iloc[:,0])):
+ 
+        without_stop=[j for j in list_to_string[k] if j not in stop_words_items]
+        without_stop_words.append(without_stop)
+
+    df['Without Stop Words']=without_stop_words 
+
+
+    return df
