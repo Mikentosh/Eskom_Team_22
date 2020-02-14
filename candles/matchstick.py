@@ -35,7 +35,7 @@ def metric_dictionary():
 
 
 # Function 2
-def five_number_summary():
+def five_num_summary(items):
 
     """
     # Explain in one sentence what the function does
@@ -54,14 +54,21 @@ def five_number_summary():
         >>> five_number_summary(#)
         ###
     """
-    return 0
+    if len(items) == 0:
+        return {}
+    
+    return {
+        "max": round(np.max(items), 2),
+        "median": round(np.median(items), 2),
+        "min": round(np.min(items), 2),
+        "q1": round(np.percentile(items, 25), 2),
+        "q3": round(np.percentile(items, 75), 2)
+    }
 
 
 # Function 3
 def date_parser():
-    # Michael
-    # to be implemented
-    # Remember to properly use docstrings!
+
     """
     # Explain in one sentence what the function does
     
@@ -79,7 +86,7 @@ def date_parser():
         >>> date_parser(#)
         ###
     """
-    return 0
+    return [date[:10] for date in dates if dates]
 
 
 # Function 4
