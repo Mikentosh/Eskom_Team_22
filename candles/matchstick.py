@@ -103,17 +103,16 @@ def hashtag_extractor():
 
 # Function 5
 def tweet_number():
-    # Kea
-    # to be implemented
-    # Remember to properly use docstrings!
+
+
     """
-    # Explain in one sentence what the function does
+    # Function calculates the number of tweets per day.
     
     Args:
-        # add args details here
+        # input a pandas dataframe which has a date-time column.
     
     Returns:
-        # add returns details here
+        # a new pandas dataframe with the number of tweets per (grouped by) day.
     
     Examples:
         >>> tweet_number(#)
@@ -123,22 +122,29 @@ def tweet_number():
         >>> tweet_number(#)
         ###
     """
-    return 0
+    dates_only = df['Date'].apply(lambda x:x.split()[0])
+   
+    new_df = dates_only.value_counts().reset_index(name='Tweets').rename(columns={'index': 'Date'})
+    
+    new_df['Date'] = pd.to_datetime(new_df['Date'])
+    new_df = new_df.set_index('Date')
+
+    
+    return new_df.sort_index(axis=0)
 
 
 # Function 6
 def word_splitter():
-    # Whole team
-    # to be implemented
-    # Remember to properly use docstrings!
+
     """
-    # Explain in one sentence what the function does
+    # Function Splits Tweets into seperate words & changes all words into lower case 
     
     Args:
-        # add args details here
+        input a pandas dataframe as an argument in the function.
     
     Returns:
-        # add returns details here
+        # the inputted pandas dataframe with a new added column ('Split Tweets') which has the Tweets as separate words 
+        
     
     Examples:
         >>> word_splitter(#)
@@ -148,7 +154,10 @@ def word_splitter():
         >>> word_splitter(#)
         ###
     """
-    return 0
+    splitter = df['Tweets'].apply(lambda x: x.lower().split())
+    df['Split Tweets'] = splitter
+    
+    return df
 
 
 # Function 7
