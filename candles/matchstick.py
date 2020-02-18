@@ -67,7 +67,7 @@ def five_num_summary(items):
 
 
 # Function 3
-def date_parser():
+def date_parser(dates):
 
     """
     # Explain in one sentence what the function does
@@ -90,10 +90,8 @@ def date_parser():
 
 
 # Function 4
-def hashtag_extractor():
-    # Thabo
-    # to be implemented
-    # Remember to properly use docstrings!  
+def extract_municipality_hashtags(df):
+  
     """
     Function which takes in a pandas dataframe as and returns a modified dataframe with two new colums containing Hashtags and Municipality information.
     
@@ -147,7 +145,7 @@ def hashtag_extractor():
 
 
 # Function 5
-def tweet_number():
+def number_of_tweets_per_day(df):
     
     """
     Function calculates the number of tweets per day.
@@ -223,10 +221,8 @@ def word_splitter(df):
 
 
 # Function 7
-def stop_word_remover():
-    # Thabo
-    # to be implemented
-    # Remember to properly use docstrings!
+def stop_words_remover(df):
+   
     """
     Function that takes a pandas dataframe as input and removes stop words from the tokenised list of tweets and returns the results as a new modified dataframe. 
     
