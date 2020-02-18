@@ -102,25 +102,35 @@ def hashtag_extractor():
 
 
 # Function 5
-def tweet_number():
+def tweet_number(df):
 
 
     """
-    # Function calculates the number of tweets per day.
+    Function calculates the number of tweets per day.
     
     Args:
-        # input a pandas dataframe which has a date-time column.
+    Input a pandas dataframe which has a date-time column.
     
     Returns:
-        # a new pandas dataframe with the number of tweets per (grouped by) day.
+    A new pandas dataframe with the number of tweets per (grouped by) day.
     
     Examples:
-        >>> tweet_number(#)
-        ###        
-        >>> tweet_number(#)
-        ###
-        >>> tweet_number(#)
-        ###
+        >>> number_of_tweets_per_day(twitter_df())
+        
+            	    Tweets
+        Date	
+        2019-11-20	18
+        2019-11-21	11
+        2019-11-22	25
+        2019-11-23	19
+        2019-11-24	14
+        2019-11-25	20
+        2019-11-26	32
+        2019-11-27	13
+        2019-11-28	32
+        2019-11-29	16        
+        >>> 
+    
     """
     dates_only = df['Date'].apply(lambda x:x.split()[0])
    
@@ -134,24 +144,33 @@ def tweet_number():
 
 
 # Function 6
-def word_splitter():
+def word_splitter(df):
 
     """
-    # Function Splits Tweets into seperate words & changes all words into lower case 
-    
+    Function Splits Tweets/sentences in a panda dataframes's column into a list of seperate words & changes all words into lower case. 
+    The result is stored as a new column on the dataframe.
     Args:
-        input a pandas dataframe as an argument in the function.
+        Input a pandas dataframe df as an argument in the function.
     
     Returns:
         # the inputted pandas dataframe with a new added column ('Split Tweets') which has the Tweets as separate words 
         
     
     Examples:
-        >>> word_splitter(#)
-        ###        
-        >>> word_splitter(#)
-        ###
-        >>> word_splitter(#)
+        >>> word_splitter(twitter_df())
+        Tweets	Date	Split Tweets
+0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	[@bongadlulane, please, send, an, email, to, m...
+1	@saucy_mamiie Pls log a call on 0860037566	2019-11-29 12:46:53	[@saucy_mamiie, pls, log, a, call, on, 0860037...
+2	@BongaDlulane Query escalated to media desk.	2019-11-29 12:46:10	[@bongadlulane, query, escalated, to, media, d...
+3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	[before, leaving, the, office, this, afternoon...
+4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	[#eskomfreestate, #mediastatement, :, eskom, s...
+...	...	...	...
+195	Eskom's Visitors Centresâ€™ facilities include i...	2019-11-20 10:29:07	[eskom's, visitors, centresâ€™, facilities, incl...
+196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	[#eskom, connected, 400, houses, and, in, the,...
+197	@ArthurGodbeer Is the power restored as yet?	2019-11-20 10:07:59	[@arthurgodbeer, is, the, power, restored, as,...
+198	@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...	2019-11-20 10:07:41	[@muthambipaulina, @sabcnewsonline, @iol, @enc...
+199	RT @GP_DHS: The @GautengProvince made a commit...	2019-11-20 10:00:09	[rt, @gp_dhs:, the, @gautengprovince, made, a,...       
+        >>> 
         ###
     """
     splitter = df['Tweets'].apply(lambda x: x.lower().split())
