@@ -80,23 +80,34 @@ def date_parser():
 def hashtag_extractor():
     # Thabo
     # to be implemented
-    # Remember to properly use docstrings!
+    # Remember to properly use docstrings!  
     """
-    # Explain in one sentence what the function does
+    Function which takes in a pandas dataframe as and returns a modified dataframe with two new colums containing Hashtags and Municipality information.
     
     Args:
-        # add args details here
+        twitter_df(DataFrame) : Pandas DataFrame as input
     
     Returns:
-        # add returns details here
+        Returns a modified dataframe with two new colums containing Hashtags and Municipality information.
     
     Examples:
-        >>> hashtag_extractor(#)
-        ###        
-        >>> hashtag_extractor(#)
-        ###
-        >>> hashtag_extractor(#)
-        ###
+        >>> extract_municipality_hashtags(twitter_df.copy())
+
+                                    Tweets                                  Date	    municipality	hashtags
+            0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	    NaN	            NaN
+            1	@saucy_mamiie Pls log a call on 0860037566	        2019-11-29 12:46:53 	NaN	            NaN
+            2	@BongaDlulane Query escalated to media desk.	    2019-11-29 12:46:10	    NaN	            NaN
+            3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	    NaN 	        NaN
+            4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	    NaN	        [#eskomfreestate, #mediastatement]
+                    ....	...	...	...	...
+            195	Eskom's Visitors Centres’ facilities include i...	2019-11-20 10:29:07	    NaN	            NaN
+            196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	    NaN	        [#eskom, #eskom, #poweringyourworld]
+
+
+          
+        >>> extract_municipality_hashtags(twitter_df.copy()).loc[4, "hashtags"]
+
+                    ['#eskomfreestate', '#mediastatement']
     """
     hash_tag=[]
     for x in range(len(df.iloc[:,0])):
@@ -178,21 +189,34 @@ def stop_word_remover():
     # to be implemented
     # Remember to properly use docstrings!
     """
-    # Explain in one sentence what the function does
+    Function that takes a pandas dataframe as input and removes stop words from the tokenised list of tweets and returns the results as a new modified dataframe. 
     
     Args:
-        # add args details here
+         twitter_df(DataFrame) : Pandas DataFrame as input
     
     Returns:
-        # add returns details here
+             Returns a modified dataframe with a new column called 'Without Stop Words' that contains a tokenised list of tweets without stop words
     
     Examples:
-        >>> stop_word_remover(#)
-        ###        
-        >>> stop_word_remover(#)
-        ###
-        >>> stop_word_remover(#)
-        ###
+        >>> stop_word_remover(twitter_df.copy())
+
+        	                Tweets	                                        Date	            Without Stop Words
+            0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	    [@bongadlulane, send, email, mediadesk@eskom.c...
+            1	@saucy_mamiie Pls log a call on 0860037566	        2019-11-29 12:46:53	    [@saucy_mamiie, pls, log, 0860037566]
+            2	@BongaDlulane Query escalated to media desk.	    2019-11-29 12:46:10	    [@bongadlulane, query, escalated, media, desk.]
+            3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	    [leaving, office, afternoon,, heading, weekend...
+            4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	    [#eskomfreestate, #mediastatement, :, eskom, s...
+                     ....	...	...	...
+            195	Eskom's Visitors Centresâ€™ facilities include i...	2019-11-20 10:29:07	    [eskom's, visitors, centresâ€™, facilities, incl...
+            196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	    [#eskom, connected, 400, houses, process, conn...
+            197	@ArthurGodbeer Is the power restored as yet?	    2019-11-20 10:07:59	    [@arthurgodbeer, power, restored, yet?]
+            198	@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...	2019-11-20 10:07:41	    [@muthambipaulina, @sabcnewsonline, @iol, @enc...
+            199	RT @GP_DHS: The @GautengProvince made a commit...	2019-11-20 10:00:09	    [rt, @gp_dhs:, @gautengprovince, commitment, e...
+        
+        >>> stop_word_remover(twitter_df.copy()).loc[0, "Without Stop Words"])
+
+        ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
+        
     """
 
     stop_words_items=stop_words_dict.get('stopwords')
