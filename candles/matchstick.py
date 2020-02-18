@@ -186,7 +186,7 @@ def tweet_number():
 
 
 # Function 6
-def word_splitter():
+def word_splitter(df):
 
     """
     Function Splits Tweets/sentences in a panda dataframes's column into a list of seperate words & changes all words into lower case. 
