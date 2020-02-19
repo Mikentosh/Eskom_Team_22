@@ -233,13 +233,12 @@ def stop_words_remover(df):
              Returns a modified dataframe with a new column called 'Without Stop Words' that contains a tokenised list of tweets without stop words
     
     Examples:
-        >>> stop_word_remover(twitter_df.copy())
-
-        	                Tweets	                                        Date	            Without Stop Words
-            0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	    [@bongadlulane, send, email, mediadesk@eskom.c...
-            1	@saucy_mamiie Pls log a call on 0860037566	        2019-11-29 12:46:53	    [@saucy_mamiie, pls, log, 0860037566]
-            2	@BongaDlulane Query escalated to media desk.	    2019-11-29 12:46:10	    [@bongadlulane, query, escalated, media, desk.]
-            3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	    [leaving, office, afternoon,, heading, weekend...
+        >>> stop_words_http_remover(#)
+        ###        
+        >>> stop_words_http_remover(#)
+        ###
+        >>> stop_words_http_remover(#)
+        ###
             4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	    [#eskomfreestate, #mediastatement, :, eskom, s...
                      ....	...	...	...
             195	Eskom's Visitors Centresâ€™ facilities include i...	2019-11-20 10:29:07	    [eskom's, visitors, centresâ€™, facilities, incl...
