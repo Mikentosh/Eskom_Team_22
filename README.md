@@ -6,6 +6,37 @@ Project repo for the Analyse sprint
 
 # The module **matchstick** is within the package **candles**
 
+# candles
+This package is a python package that contains seven functions within the matchstick module,which compute and calculate data related to Eskom. See # Functions_brief for general information and see doctrings for detailed information.
+
+## building this package locally
+python setup.py sdist
+
+## installing this package from GitHub
+pip install git+https://github.com/Mikentosh/candles.git
+
+## updating this package from GitHub
+pip install --upgrade git+https://github.com/Mikentosh/candles.git
+
+## License
+MIT License. Visit https://choosealicense.com/licenses/mit/ for license details.
+
+## Support
+For a installation or updating and/or any errors/issues arising, or to also contribute to the project,please contact the following authors/contributors:
+        Keabetswe   -   Lefifikea@gmail.com
+        Michael     -   lunarfoxel@gmail.com
+        Thabo       -   thaboalexm@gamil.com
+
+For queries about errors please screenshot the error and attach the screenshot as part of your email query. If we take time to reply, know that Eskom as it again.
+
+## contribution
+To contribute to the project please contact any one of the authors/contributors mentioned above. Eskom employees and their family members are NOT welcomed :).
+
+## needed packages/modules
+for this package to work you would have to pandas and numpy packages installed already. If not installed use 'pip install pandas' and 'pip install numpy'.
+
+## Functions_brief
+
 # Function 1 - dictionary_of_metrics()
 
 Takes a list of integers and returns a dictionary of the mean, median, variance, standard deviation, min and max.
