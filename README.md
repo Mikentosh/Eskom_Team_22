@@ -98,11 +98,11 @@ Takes a list of datetime strings and converts it into a list of strings with onl
     
 ### Examples:
 >>> date_parser(['2019-11-29 12:50:54', '2019-11-29 12:46:53'])
-['2019-11-29', '2019-11-29']
+>>> ['2019-11-29', '2019-11-29']
 >>> date_parser(['2019-10-25 12:50:54'])
-['2019-10-25]
->>> date_parser(#)
-
+>>> ['2019-10-25']
+>>> date_parser(['2020-10-22 11:30:54'])
+>>> ['2020-10-22']
 
 ---
 
