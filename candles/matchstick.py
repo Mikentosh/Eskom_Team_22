@@ -94,7 +94,7 @@ def five_num_summ(items):
 
 
 # Function 3
-def date_parser(list_dates):
+def date_parser(dates):
 
     """
     Takes a list of datetime strings and converts it into a list of strings with only the date.
