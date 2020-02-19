@@ -2,87 +2,89 @@
 
 
 # Function 1
-def metric_dictionary(items):
+def dictionary_of_metrics(items):
 
     """
-    # Explain in one sentence what the function does
+    Takes a list of integers and returns a dictionary of the mean, median, variance, standard deviation, min and max.
     
     Args:
-        # add args details here
+        items: list of integers
     
     Returns:
-        # add returns details here
+        dictionary of the mean, median, variance, standard deviation, min and max.
     
     Examples:
-        >>> metric_dictionary(#)
+        >>> dictionary_of_metrics(#)
         ###        
-        >>> metric_dictionary(#)
+        >>> dictionary_of_metrics(#)
         ###
-        >>> metric_dictionary(#)
+        >>> dictionary_of_metrics(#)
         ###
     """
-    if len(items) == 0:
-        return {}
     
+    if len(items) == 0:
+        return 0
+
     return {
-        "mean": round(np.mean(items), 2),
-        "median": round(np.median(items), 2),
-        "var": round(np.var(items, ddof=1), 2),
-        "std": round(np.std(items, ddof=1), 2),
-        "min": round(np.min(items), 2),
-        "max": round(np.max(items), 2)
-    }    
+            "mean": round(np.mean(items), 2),
+            "median": round(np.median(items), 2),
+            "variance": round(np.var(items, ddof=1), 2),
+            "standard deviation": round(np.std(items, ddof=1), 2),
+            "min": round(np.min(items), 2),
+            "max": round(np.max(items), 2)
+           }   
 
 
 # Function 2
-def five_num_summary(items):
+def five_num_summ(items):
 
     """
-    # Explain in one sentence what the function does
+    Takes a list of integers and returns a dictionary of the five number summary.
     
     Args:
-        # add args details here
+        items: list of integers
     
     Returns:
-        # add returns details here
+        dictionary of the five number summary
     
     Examples:
-        >>> five_number_summary(#)
+        >>> five_num_summ(#)
         ###        
-        >>> five_number_summary(#)
+        >>> five_num_summ(#)
         ###
-        >>> five_number_summary(#)
+        >>> five_num_summ(#)
         ###
     """
+    
     if len(items) == 0:
-        return {}
+        return []
     
     return {
-        "max": round(np.max(items), 2),
-        "median": round(np.median(items), 2),
-        "min": round(np.min(items), 2),
-        "q1": round(np.percentile(items, 25), 2),
-        "q3": round(np.percentile(items, 75), 2)
-    }
+            "max": round(np.max(items), 2),
+            "median": round(np.median(items), 2),
+            "min": round(np.min(items), 2),
+            "q1": round(np.percentile(items, 25), 2),
+            "q3": round(np.percentile(items, 75), 2)
+           }
 
 
 # Function 3
-def date_parser(dates):
+def date_parser(list_dates):
 
     """
-    # Explain in one sentence what the function does
+    Takes a list of datetime strings and converts it into a list of strings with only the date.
     
     Args:
-        # add args details here
+        list_dates: list of datetime strings
     
     Returns:
-        # add returns details here
+        list of strings with only the date
     
     Examples:
-        >>> date_parser(#)
-        ###        
-        >>> date_parser(#)
-        ###
+        >>> date_parser(['2019-11-29 12:50:54', '2019-11-29 12:46:53'])
+        ['2019-11-29', '2019-11-29']
+        >>> date_parser(['2019-10-25 12:50:54'])
+        ['2019-10-25]
         >>> date_parser(#)
         ###
     """
@@ -91,15 +93,15 @@ def date_parser(dates):
 
 # Function 4
 def extract_municipality_hashtags(df):
-  
+
     """
-    Function which takes in a pandas dataframe as and returns a modified dataframe with two new colums containing Hashtags and Municipality information.
+    Takes a pandas dataframe and returns the same dataframe which has the name of the muncipality.
     
     Args:
-        twitter_df(DataFrame) : Pandas DataFrame as input
+        df: pandas dataframe with Tweet data
     
     Returns:
-        Returns a modified dataframe with two new colums containing Hashtags and Municipality information.
+        pandas dataframe with extracted municipality name
     
     Examples:
         >>> extract_municipality_hashtags(twitter_df.copy())
@@ -146,15 +148,15 @@ def extract_municipality_hashtags(df):
 
 # Function 5
 def number_of_tweets_per_day(df):
-    
+
     """
-    Function calculates the number of tweets per day.
+    Calculates the number of tweets that were posted per day.
     
     Args:
-    Input a pandas dataframe which has a date-time column.
+        df: pandas dataframe 
     
     Returns:
-    A new pandas dataframe with the number of tweets per (grouped by) day.
+        Returns a new dataframe with columns 'Date' & 'Number of Tweets'
     
     Examples:
         >>> number_of_tweets_per_day(twitter_df())
@@ -187,10 +189,10 @@ def number_of_tweets_per_day(df):
 def word_splitter(df):
 
     """
-    Function Splits Tweets/sentences in a panda dataframes's column into a list of seperate words & changes all words into lower case. 
-    The result is stored as a new column on the dataframe.
+    Splits a sentence into a list of the separate words.
+    
     Args:
-        Input a pandas dataframe df as an argument in the function.
+        df: pandas dataframe 
     
     Returns:
         # the inputted pandas dataframe with a new added column ('Split Tweets') which has the Tweets as separate words 
@@ -221,13 +223,13 @@ def word_splitter(df):
 
 
 # Function 7
-def stop_words_remover(df):
-   
+def stop_words_http_remover(df):
+
     """
     Function that takes a pandas dataframe as input and removes stop words from the tokenised list of tweets and returns the results as a new modified dataframe. 
     
     Args:
-         twitter_df(DataFrame) : Pandas DataFrame as input
+        df: pandas dataframe
     
     Returns:
              Returns a modified dataframe with a new column called 'Without Stop Words' that contains a tokenised list of tweets without stop words
@@ -239,18 +241,6 @@ def stop_words_remover(df):
         ###
         >>> stop_words_http_remover(#)
         ###
-            4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	    [#eskomfreestate, #mediastatement, :, eskom, s...
-                     ....	...	...	...
-            195	Eskom's Visitors Centresâ€™ facilities include i...	2019-11-20 10:29:07	    [eskom's, visitors, centresâ€™, facilities, incl...
-            196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	    [#eskom, connected, 400, houses, process, conn...
-            197	@ArthurGodbeer Is the power restored as yet?	    2019-11-20 10:07:59	    [@arthurgodbeer, power, restored, yet?]
-            198	@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...	2019-11-20 10:07:41	    [@muthambipaulina, @sabcnewsonline, @iol, @enc...
-            199	RT @GP_DHS: The @GautengProvince made a commit...	2019-11-20 10:00:09	    [rt, @gp_dhs:, @gautengprovince, commitment, e...
-        
-        >>> stop_word_remover(twitter_df.copy()).loc[0, "Without Stop Words"])
-
-        ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
-        
     """
 
     stop_words_items=stop_words_dict.get('stopwords')
