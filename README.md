@@ -57,7 +57,7 @@ none
 
 # Function 3 - date_parser()
 
-Function that takes as input a list of datetime strings in the form 'yyyy-mm-dd hh:mm:ss' and returns a list of strings with the date only, in the form 'yyyy-mm-dd'.
+Takes a list of datetime strings and converts it into a list of strings with only the date.
 
 ### Args:
     list_dates: list of datetime strings
