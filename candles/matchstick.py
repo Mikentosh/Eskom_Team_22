@@ -14,12 +14,24 @@ def dictionary_of_metrics(items):
         dictionary of the mean, median, variance, standard deviation, min and max.
     
     Examples:
-        >>> dictionary_of_metrics(#)
-        ###        
-        >>> dictionary_of_metrics(#)
-        ###
-        >>> dictionary_of_metrics(#)
-        ###
+        >>> dictionary_of_metrics([39660.0,36024.0,32127.0,39488.0,18422.0,23532.0,8842.0,37416.0,16156.0,18730.0,19261.0,25275.0])
+
+        {'mean': 26244.42,
+         'median': 24403.5,
+         'var': 108160153.17,
+         'std': 10400.01,
+         'min': 8842.0,
+         'max': 39660.0} 
+
+        >>> dictionary_of_metrics([1,2,3,4,5,6,7,8,9,10])
+
+        {'mean': 5.5, 
+         'median': 5.5,
+         'var': 9.17,
+         'std': 3.03,
+         'min': 1,
+         'max': 10}
+    
     """
     
     if len(items) == 0:
@@ -48,12 +60,22 @@ def five_num_summ(items):
         dictionary of the five number summary
     
     Examples:
-        >>> five_num_summ(#)
-        ###        
-        >>> five_num_summ(#)
-        ###
-        >>> five_num_summ(#)
-        ###
+        >>> five_num_summary([39660.0,36024.0,32127.0,39488.0,18422.0,23532.0,8842.0,37416.0,16156.0,18730.0,19261.0,25275.0])
+
+        {'max': 39660.0,
+         'median': 24403.5,
+         'min': 8842.0,
+         'q1': 18653.0,
+         'q3': 36372.0}
+
+        >>> five_num_summary([1,2,3,4,5,6,7,8,9,10])
+
+        {'max': 10,
+         'median': 5.5,
+         'min': 1,
+         'q1': 3.25,
+         'q3': 7.75}
+        
     """
     
     if len(items) == 0:
@@ -101,7 +123,7 @@ def extract_municipality_hashtags(df):
         df: pandas dataframe with Tweet data
     
     Returns:
-        pandas dataframe with extracted municipality name
+        pandas dataframe with extracted municipality name and hashtags
     
     Examples:
         >>> extract_municipality_hashtags(twitter_df.copy())
@@ -111,10 +133,10 @@ def extract_municipality_hashtags(df):
             1	@saucy_mamiie Pls log a call on 0860037566	        2019-11-29 12:46:53 	NaN	            NaN
             2	@BongaDlulane Query escalated to media desk.	    2019-11-29 12:46:10	    NaN	            NaN
             3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	    NaN 	        NaN
-            4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	    NaN	        [#eskomfreestate, #mediastatement]
+            4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	    NaN	            [#eskomfreestate, #mediastatement]
                     ....	...	...	...	...
             195	Eskom's Visitors Centres’ facilities include i...	2019-11-20 10:29:07	    NaN	            NaN
-            196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	    NaN	        [#eskom, #eskom, #poweringyourworld]
+            196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	    NaN	            [#eskom, #eskom, #poweringyourworld]
 
 
           
@@ -202,17 +224,17 @@ def word_splitter(df):
         >>> word_splitter(twitter_df())
 
                             Tweets	                                    Date	                Split Tweets
-        0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	[@bongadlulane, please, send, an, email, to, m...
-        1	@saucy_mamiie Pls log a call on 0860037566	2019-11-29 12:46:53	[@saucy_mamiie, pls, log, a, call, on, 0860037...
-        2	@BongaDlulane Query escalated to media desk.	2019-11-29 12:46:10	[@bongadlulane, query, escalated, to, media, d...
-        3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	[before, leaving, the, office, this, afternoon...
-        4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	[#eskomfreestate, #mediastatement, :, eskom, s...
+        0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	    [@bongadlulane, please, send, an, email, to, m...
+        1	@saucy_mamiie Pls log a call on 0860037566	        2019-11-29 12:46:53	    [@saucy_mamiie, pls, log, a, call, on, 0860037...
+        2	@BongaDlulane Query escalated to media desk.	    2019-11-29 12:46:10	    [@bongadlulane, query, escalated, to, media, d...
+        3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	    [before, leaving, the, office, this, afternoon...
+        4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	    [#eskomfreestate, #mediastatement, :, eskom, s...
         ...	...	...	...
-        195	Eskom's Visitors Centresâ€™ facilities include i...	2019-11-20 10:29:07	[eskom's, visitors, centresâ€™, facilities, incl...
-        196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	[#eskom, connected, 400, houses, and, in, the,...
-        197	@ArthurGodbeer Is the power restored as yet?	2019-11-20 10:07:59	[@arthurgodbeer, is, the, power, restored, as,...
-        198	@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...	2019-11-20 10:07:41	[@muthambipaulina, @sabcnewsonline, @iol, @enc...
-        199	RT @GP_DHS: The @GautengProvince made a commit...	2019-11-20 10:00:09	[rt, @gp_dhs:, the, @gautengprovince, made, a,...       
+        195	Eskom's Visitors Centresâ€™ facilities include i...	2019-11-20 10:29:07 	[eskom's, visitors, centresâ€™, facilities, incl...
+        196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	    [#eskom, connected, 400, houses, and, in, the,...
+        197	@ArthurGodbeer Is the power restored as yet?	    2019-11-20 10:07:59	    [@arthurgodbeer, is, the, power, restored, as,...
+        198	@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...	2019-11-20 10:07:41	    [@muthambipaulina, @sabcnewsonline, @iol, @enc...
+        199	RT @GP_DHS: The @GautengProvince made a commit...	2019-11-20 10:00:09	    [rt, @gp_dhs:, the, @gautengprovince, made, a,...       
         >>> 
         ###
     """
@@ -223,7 +245,7 @@ def word_splitter(df):
 
 
 # Function 7
-def stop_words_http_remover(df):
+def stop_words_remover(df):
 
     """
     Function that takes a pandas dataframe as input and removes stop words from the tokenised list of tweets and returns the results as a new modified dataframe. 
@@ -235,12 +257,21 @@ def stop_words_http_remover(df):
              Returns a modified dataframe with a new column called 'Without Stop Words' that contains a tokenised list of tweets without stop words
     
     Examples:
-        >>> stop_words_http_remover(#)
-        ###        
-        >>> stop_words_http_remover(#)
-        ###
-        >>> stop_words_http_remover(#)
-        ###
+        >>> stop_words_remover(df)
+
+                                Tweets	                                Date	                Without Stop Words
+        0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	    [@bongadlulane, send, email, mediadesk@eskom.c...
+        1	@saucy_mamiie Pls log a call on 0860037566	        2019-11-29 12:46:53	    [@saucy_mamiie, pls, log, 0860037566]
+        2	@BongaDlulane Query escalated to media desk.	    2019-11-29 12:46:10	    [@bongadlulane, query, escalated, media, desk.]
+        3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	    [leaving, office, afternoon,, heading, weekend...
+        4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	    [#eskomfreestate, #mediastatement, :, eskom, s...
+        ....	...	...	...
+        195	Eskom's Visitors Centresâ€™ facilities include i...	2019-11-20 10:29:07	    [eskom's, visitors, centresâ€™, facilities, incl...
+        196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	    [#eskom, connected, 400, houses, process, conn...
+        197	@ArthurGodbeer Is the power restored as yet?	    2019-11-20 10:07:59	    [@arthurgodbeer, power, restored, yet?]
+        198	@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...	2019-11-20 10:07:41	    [@muthambipaulina, @sabcnewsonline, @iol, @enc...
+        199	RT @GP_DHS: The @GautengProvince made a commit...	2019-11-20 10:00:09	    [rt, @gp_dhs:, @gautengprovince, commitment, e...     
+        
     """
 
     stop_words_items=stop_words_dict.get('stopwords')
