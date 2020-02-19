@@ -30,7 +30,7 @@ For a installation or updating and/or any errors/issues arising, or to also cont
 For queries about errors please screenshot the error and attach the screenshot as part of your email query. If we take time to reply, know that Eskom as it again.
 
 ## contribution
-To contribute to the project please contact any one of the authors/contributors mentioned above. Eskom employees and their family members are NOT welcomed :).
+To contribute to the project please contact any one of the authors/contributors mentioned above. Eskom employees and their family members are NOT welcomed.......Yes including you too Pravin :)
 
 ## needed packages/modules
 for this package to work you would have to pandas and numpy packages installed already. If not installed use 'pip install pandas' and 'pip install numpy'.
@@ -52,12 +52,7 @@ Dictionary of the mean, median, variance, standard deviation, min and max.
 
 
 ### Examples:
->>> dictionary_of_metrics(none)
-none      
->>> dictionary_of_metrics(none)
-none
->>> dictionary_of_metrics(none)
-none
+See Docstring for detailed examples
 
 ---
 
@@ -77,12 +72,7 @@ Takes a list of integers and returns a dictionary of the five number summary.
 
 ### Examples:
 
->>> five_num_summ(none)
-none      
->>> five_num_summ(none)
-none
->>> five_num_summ(none)
-none
+See Docstring for detailed examples
 
 ---
 
@@ -97,12 +87,7 @@ Takes a list of datetime strings and converts it into a list of strings with onl
     list of strings with only the date
     
 ### Examples:
->>> date_parser(['2019-11-29 12:50:54', '2019-11-29 12:46:53'])
-['2019-11-29', '2019-11-29']
->>> date_parser(['2019-10-25 12:50:54'])
-['2019-10-25']
->>> date_parser(['2020-10-22 11:30:54'])
-['2020-10-22']
+See Docstring for detailed examples
 
 ---
 
@@ -121,12 +106,7 @@ Takes a pandas dataframe and returns the same dataframe which has the name of th
 
     
 ### Examples:
->>> hashtag_extractor(none)
-none       
->>> hashtag_extractor(none)
-none
->>> hashtag_extractor(none)
-none
+>See Docstring for detailed examples
 
 
 ---
@@ -145,12 +125,7 @@ Calculates the number of tweets that were posted per day.
 
     
 ### Examples:
->>> tweet_number(none)
-none     
->>> tweet_number(none)
-none
->>> tweet_number(none)
-none
+See Docstring for detailed examples
 
 
 ---
@@ -166,12 +141,7 @@ Splits a sentence into a list of the separate words.
     Returns a 
     
 ### Examples:
->>> word_splitter(none)
-none        
->>> word_splitter(none)
-none
->>> word_splitter(none)
-none
+See Docstring for detailed examples
 
 
 ---
@@ -188,10 +158,5 @@ Explain in one sentence what the function does
     # add returns details here
     
 ### Examples:
->>> stop_words_http_remover(none)
-none
->>> stop_words_http_remover(none)
-none
->>> stop_words_http_remover(none)
-none
+See Docstring for detailed examples
 
