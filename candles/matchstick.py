@@ -164,17 +164,17 @@ def extract_municipality_hashtags(df):
         rowz = [ i for i in df.iloc[x][0].split() if i.startswith('#')]
         hash_tag.append(rowz)
         hash_tag = [[x.lower() for x in a] for a in hash_tag]
- 
+
     Municip_hash=[]
     Municip_name=[]
     for j in range(len(df.iloc[:,0])):
         rowz = [ i for i in df.iloc[j][0].split() if i.startswith('@')]
         Municip_hash.append(rowz)
 
-    for k in range(len(Municip_hash)):
-        name_munic=[mun_dict[x] for x in  Municip_hash[k] if x in mun_dict]
+    for item in Municip_hash:
+        name_munic = [mun_dict[x] for x in item if x in mun_dict]
         Municip_name.append(name_munic)
-  
+
     df = df.assign(municipality = [','.join(map(str,l)) for l in Municip_name ])
     df['municipality']=df['municipality'].apply(lambda y: np.nan if len(y)==0 else y)
 
